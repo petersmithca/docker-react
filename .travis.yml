@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t petersmithca/docker-react -f Dockerfile.dev .
+
+scripts:
+  - docker run petersmithca/docker-react yarn test -- --coverage
